@@ -14,6 +14,20 @@ driver.implicitly_wait(10)
 # print(driver.page_source)
 time.sleep(5)
 
+elementTo = driver.find_element_by_xpath('//*[@id="TextBoxDateTo"]')
+elementTo.send_keys("")
+elementTo.send_keys(Keys.ENTER)
+
+time.sleep(3)
+
+elementSubmit = driver.find_element_by_xpath(
+    '//*[@id="ctl00_ctl44_g_f51e6b6d_47c5_4ff4_8105_27cbd1a2f52d_ctl00_ButtonCari"]')
+elementSubmit.click()
+
+
+driver.implicitly_wait(10)
+time.sleep(2)
+
 
 datakursbi = pd.read_html(driver.page_source)
 # print(datakursbi[0])
